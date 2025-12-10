@@ -1,0 +1,58 @@
+# LMCache config for vLLM with KVRocks backend
+
+lmcache_instance_id: "lmcache_vllm_kvrocks"
+chunk_size: 1024
+save_unfull_chunk: true
+blocking_timeout_secs: 10
+
+
+extra_config:
+  enable_batch_writes: true
+  use_mset: false
+  redis_batch_size: 64
+  
+# No local memory usage
+local_cpu: false
+max_local_cpu_size: 4
+local_disk: null
+max_local_disk_size: 0.0
+
+remote_url: "redis://0.0.0.0:6666"
+remote_serde: "naive"
+
+enable_controller: false
+lookup_url: null
+distributed_url: null
+error_handling: false
+cache_policy: "LRU"
+numa_mode: null
+py_enable_gc: true
+
+# Advanced options
+use_layerwise: false
+save_decode_cache: true
+enable_blending: false
+blend_recompute_ratio: 0.15
+blend_min_tokens: 256
+blend_special_str: " # # "
+enable_nixl: false
+nixl_role: null
+nixl_receiver_host: null
+nixl_receiver_port: null
+nixl_buffer_size: null
+nixl_buffer_device: null
+nixl_enable_gc: false
+nixl_backends: null
+enable_xpyd: false
+
+# Internal API server is off
+internal_api_server_enabled: false
+internal_api_server_host: "0.0.0.0"
+internal_api_server_port_start: 6999
+internal_api_server_include_index_list: null
+internal_api_server_socket_path_prefix: null
+
+plugin_locations: null
+external_backends: null
+external_lookup_client: null
+
